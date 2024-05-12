@@ -2,7 +2,7 @@
 Web wallpaper made for wallpaper engine
 
 ## Credit
-Rain effect: https://github.com/codrops/RainEffect
+Rain effect: https://github.com/codrops/RainEffect \
 Clock: https://steamcommunity.com/sharedfiles/filedetails/?id=3119179287
 
 ## Known Issues
