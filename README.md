@@ -1,4 +1,5 @@
 # web-wallpaper
+[Demo](https://scritty1249.github.io/web-wallpaper/index.html)
 Web wallpaper made for wallpaper engine
 
 ## Credit
