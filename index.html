@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Wi-Fi Clock</title>
+    <link rel="stylesheet" href="./css/rain.css">
+    <link rel="stylesheet" href="./css/clock.css">
+    <script type="module" src="./js/rain.js"></script>
+    <script type="module" src="./js/clock.js"></script>
+    <script type="module" src="./js/index.js"></script>
+</head>
+<body>
+    <div class="image-preload">
+        <img src="img/drop-color.png" alt="">
+        <img src="img/drop-alpha.png" alt="">
+        <img src="img/weather/texture-rain-fg.png">
+        <img src="img/weather/texture-rain-bg.png">
+    </div>
+    <div class="container">
+        <div id="clock-area" class="dark">
+            <div class="clock-container">
+                <div class="time">
+                    <div class="timestr"> </div>
+                    <div class="ampm-text"></div>
+                </div>
+                <div class="date">
+                    <span class="circle"></span>
+                </div>
+                <div class="clock">
+                    <div class="needle hour"></div>
+                    <div class="needle minute"></div>
+                    <div class="needle second"></div>
+                    <div class="center-point"></div>
+                </div>
+            </div>
+        </div>
+        <canvas id="container" class="rain"></canvas>
+        <p class="rain nosupport">Sorry, but your browser does not support WebGL!</p>
+    </div>
+</body>
+</html>

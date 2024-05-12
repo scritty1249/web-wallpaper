@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+#clock-area {
+	position: absolute;
+	z-index: 2;
+	box-sizing: border-box;
+	transition: all 0.5s ease-in;
+	color: rgb(var(--primary-color));
+	margin: auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	border-radius: 50%;
+	overflow: clip;
+	overflow-clip-margin: content-box;
+	height: var(--clock-area-size);
+	width: var(--clock-area-size);
+	box-shadow: 0px 0px 10px 4px #111, inset 0px 0px 7px 1px rgba(255, 255, 255, 0.135);
+	/* This acutally works for some reason... centers the clock vertically */
+	top: 1vh;
+	backdrop-filter: blur(8px);
+}
+
+#clock-area {
+	--primary-color: 0, 0, 0;
+	--secondary-color: 255, 255, 255;
+	--primary-color-dark: 255, 255, 255;
+	--secondary-color-dark: 3, 3, 3;
+	--clock-area-size: 40vw; /* Value is changed in JS */
+	--clock-size: calc(var(--clock-area-size) * 0.4);
+	--max-needle-length: calc(var(--clock-area-size) * 0.275);
+	--font-size: 60px;
+}
+
+#clock-area.dark {
+	--primary-color: var(--primary-color-dark) !important;
+	--secondary-color: var(--secondary-color-dark) !important;
+}
+
+#clock-area.dark {
+	background-color: rgba(100, 100, 100, 0.2) !important;
+	color: rgb(var(--primary-color));
+}
+
+body {
+	font-family: 'Noto Sans TC', 'Heebo', sans-serif;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+#clock-area .clock-container {
+	display: flex;
+	flex-direction: column;
+	padding-top: 15%;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#clock-area .clock {
+	position: relative;
+	margin-top: calc(var(--clock-area-size) * 0.1);
+	height: 50%;
+	width: 50%;
+	height: var(--clock-size);
+	flex: none;
+}
+
+#clock-area .needle {
+	background-color: rgb(var(--primary-color));
+	transition: all 0.5s ease-in;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border-radius: 25%;
+	transform-origin: bottom center;
+	width: calc(var(--clock-area-size) / 125);
+	height: var(--max-needle-length);
+	/* FOr some reason border radius stops working during transformations, so hopefully this fixes that bug */
+	border: 1px solid transparent;
+}
+
+#clock-area .needle.hour {
+	transform: translate(-50%, -100%) rotate(0deg);
+	height: calc(var(--max-needle-length) * 0.65);
+}
+
+#clock-area .needle.minute {
+	transform: translate(-50%, -100%) rotate(0deg);
+}
+
+#clock-area .needle.second {
+	background-color: #e74c3c;
+	transform: translate(-50%, -100%) rotate(0deg);
+}
+
+#clock-area .center-point {
+	background-color: #e74c3c;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#clock-area .center-point::after {
+	background-color: rgb(var(--primary-color));
+	transition: all 0.5s ease-in;
+	border-radius: 50%;
+	content: '';
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#clock-area .time {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: baseline;
+	flex-wrap: nowrap;
+	font-size: var(--font-size);
+}
+
+#clock-area .date {
+	color: #aaa;
+	font-size: 14px;
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
+}
+
+	#clock-area .date .circle {
+		background-color: rgb(var(--primary-color));
+		border-radius: 50%;
+		color: rgb(var(--secondary-color));
+		display: inline-flex;
+		align-items: center;
+		align-content: center;
+		justify-content: center;
+		font-size: 12px;
+		line-height: 18px;
+		transition: all 0.5s ease-in;
+		width: 21px;
+		height: 21px;
+		display: flexbox;
+	}
+
+#clock-area .ampm-text {
+	margin-left: 1rem;
+	font-size: calc(var(--font-size) * 0.5);
+}
+
+@media screen and (max-width: 600px) {
+	#clock-area .time {
+		font-size: 35px;
+		margin: 0;
+	}
+
+	#clock-area .clock {
+		margin-top: 15px;
+	}
+}
